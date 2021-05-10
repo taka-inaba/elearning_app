@@ -31,7 +31,7 @@
         </div>
         <div class="col-md-9">
             <div class="card">
-                <h1>Activities</h1>
+                <h2>Activities</h2>
                 <div class="car-body">
 
                 </div>
