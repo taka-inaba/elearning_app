@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -26,4 +27,12 @@ class HomeController extends Controller
         // session()->flash('flash_message', 'You are logged in');
         return view('home');
     }
+
+    public function list()
+    {
+        $users = User::all();
+
+        return view('users', compact('users'));
+    }
+
 }

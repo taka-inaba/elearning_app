@@ -40,7 +40,24 @@
         </div>
     </div>
 
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+                <h1>Dashboard</h1>
+            <div class="card">
+                <div class="car-body" align='center'>
+                    <h2>{{ Auth::user()->name}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <h1>Activities</h1>
+                <div class="car-body">
 
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 @endsection
