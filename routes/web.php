@@ -30,6 +30,6 @@ Route::get('/users/{user}', 'HomeController@show')->name('user');
 Route::post('/users/follow', 'FollowController@follow')->name('user.follow');
 Route::delete('/users/unfollow', 'FollowController@unfollow')->name('user.unfollow');
 
-Route::get('/users/follow_id', 'FollowController@followget')
-Route::get('/users/unfollow_id', 'FollowController@unfollowget')
+// Route::get('/users/follow_id', 'FollowController@followget')
+// Route::get('/users/unfollow_id', 'FollowController@unfollowget')
 
