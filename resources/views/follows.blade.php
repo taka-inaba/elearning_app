@@ -11,6 +11,14 @@
 @extends('layouts.app')
 
 @section('content')
+@if($follows->isEmpty())
+    <div class="row justify-content-center">
+        <div align='center' class="col-md-10">
+            <h1>No one</h1>
+        </div>
+    </div>
+@endif
+
 <div class="container">
 
     <div class="row justify-content-center">
@@ -29,7 +37,7 @@
 
                     </div>
                 </div>
-                @endforeach
+            @endforeach
         </div>
     </div>
 
