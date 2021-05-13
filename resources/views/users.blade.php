@@ -27,13 +27,13 @@
                                 <a>{{ $user->nationality }}</a>
                             </div>
                             <div class="d-flex align-items-center">
-                                @if (Auth::user()->is_following($user->id) || Auth::user()->id == $user->id))
+                                @if (Auth::user()->is_following($user->id) || Auth::user()->id == $user->id)
                                 <div align='right' class="ml-auto">
-                                    <a href="{{ route('user.follow', ['unfollowed_id' => $user->id]) }}" class='btn btn-danger'> Unfollow</a>
+                                    <a href="{{ route('user.unfollow', ['unfollowed_id' => $user->id]) }}" class='btn btn-danger'>Unfollow</a>
                                 </div>
                                 @else
                                 <div align='right' class="ml-auto" >
-                                    <a href="{{ route('user.unfollow', ['followed_id' => $user->id]) }}" class='btn btn-primary'> Follow</a>
+                                    <a href="{{ route('user.follow', ['followed_id' => $user->id]) }}" class='btn btn-primary'>Follow</a>
                                 </div>
                                 @endif
                             </div>
