@@ -36,4 +36,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function follows(){
+        return $this->hasMany('App\Follow', 'follow_id', 'id');
+    }
+
+    public function followers(){
+        return $this->belongsToMany('App\User', 'follows', 'follow_id', 'user_id');
+    }
+
+    public function following(){
+        return $this->belongsToMany('App\User', 'follows', 'user_id', 'follow_id');
+    }
+
+    public function is_following($followed_id){
+        if( $this -> following()->where('follow_id', $followed_id)->count() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
