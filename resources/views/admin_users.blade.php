@@ -14,7 +14,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <h1> Admin Dashboard | Categories</h1>
+            <h1> Admin Dashboard | Users</h1>
         </div>
     </div>
     <div class="row">
@@ -38,30 +38,31 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Title</th>
-            <th>Description</th>
+            <th>Name</th>
+            <th>Nationality</th>
+            <th>Email</th>
+            <th>Role</th>
             <th>Actions</th>
         </tr>
     </thead>
-    @foreach ($categories as $category)
+    @foreach ($users as $user)
         <tbody>
             <tr>
-                <td>{{ $category->id }}</td>
-                <td>
-                <a href='{{ url('/admin/categories/'. $category->id) }}'>
-                {{ $category->title }}</a>
-                </td>
-                <td>{{ $category->description }}</td>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->name}}</td>
+                <td>{{ $user->nationality }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->role }}</td>
                 <td>
                     <div class="row">
                         <div class="col-md-2">
-                    <form action='/admin/categories/{{ $category->id }}/edit' method='GET'>
+                    <form action='/admin/users/{{ $user->id }}/edit' method='GET'>
                         @csrf
                         <button type='submit' class='btn btn-primary' style='background-color:#046604'>Edit</button>
                     </form>
                     </div>
                         <div class="col-md-2">
-                        <form action='/admin/categories/{{ $category->id }}/edit' method='POST'>
+                        <form action='/admin/users/{{ $user->id }}/edit' method='POST'>
                         @csrf
                         @method('DELETE')
                         <button type='submit' class='btn btn-warning' style='background-color:red'>DELETE</button>
