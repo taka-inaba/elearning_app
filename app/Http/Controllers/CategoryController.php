@@ -15,6 +15,12 @@ class CategoryController extends Controller
         return view('quiz', compact('categories', 'quizzes'));
 
     }
+    public function main_list(Category $categories){
+
+        $categories = Category::all();
+
+        return view('list_categories', compact('categories'));
+    }
 
     public function list(Category $categories){
 
