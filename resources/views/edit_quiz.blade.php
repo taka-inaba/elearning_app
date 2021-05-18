@@ -131,7 +131,7 @@
                 <br>
                 <br>
                 @method('PATCH')
-                <button class = 'btn btn-primary' type='submit' >Create Quiz</button>
+                <button class = 'btn btn-primary' type='submit' >Add Quiz</button>
                 </form>
 
             </div>
