@@ -63,6 +63,11 @@
                                     <a class="dropdown-item" href="{{ route('home') }}">
                                         {{ __('Home') }}
                                     </a>
+                                    @if (Auth::user()->role == 'admin')
+                                    <a class="dropdown-item" href="{{ route('list') }}">
+                                        {{ __('Admin Dashboard') }}
+                                    </a>
+                                    @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
