@@ -131,7 +131,11 @@
                 <br>
                 <br>
                 @method('PATCH')
+<<<<<<< Updated upstream
                 <button class = 'btn btn-primary' type='submit' >Add Quiz</button>
+=======
+                <button class = 'btn btn-primary' type='submit' >Create Quiz</button>
+>>>>>>> Stashed changes
                 </form>
 
             </div>
