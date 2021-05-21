@@ -75,4 +75,8 @@ Route::get('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController
 Route::patch('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@update');
 Route::delete('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@delete');
 
+Route::get('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@edit');
+Route::patch('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@update');
+Route::delete('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@delete');
 
+Route::get('/lessons/', 'LessonController@list');
