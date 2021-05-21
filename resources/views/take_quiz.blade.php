@@ -14,6 +14,9 @@
                     {{-- <a href="{{ $quizzes->nextPageUrl() }}">next</a> --}}
                         <form align='center' method='POST' action="{{ $quizzes->nextPageUrl() }}">
                             <input type="hidden" name="nextPageUrl" value="{{ $quizzes->nextPageUrl() }}">
+                            @if ($quizzes->currentPage() == $quizzes->lastPage())
+                                <input type="hidden" name="nextPageUrl" value="end">
+                            @endif
                             <input type="hidden" name="quiz_id" value="{{ $quiz->id }}">
                             @csrf
                             {{-- <input type="hidden" name="ur_answer" value=1> --}}
@@ -21,6 +24,9 @@
                         </form>
                         <form align='center' method='POST' action="{{ $quizzes->nextPageUrl() }}">
                             <input type="hidden" name="nextPageUrl" value="{{ $quizzes->nextPageUrl() }}">
+                            @if ($quizzes->currentPage() == $quizzes->lastPage())
+                                <input type="hidden" name="nextPageUrl" value="end">
+                            @endif
                             <input type="hidden" name="quiz_id" value="{{ $quiz->id }}">
                             @csrf
                             {{-- <input type="hidden" name="ur_answer" value=2> --}}
@@ -28,6 +34,9 @@
                         </form>
                         <form align='center' method='POST' action="{{ $quizzes->nextPageUrl() }}">
                             <input type="hidden" name="nextPageUrl" value="{{ $quizzes->nextPageUrl() }}">
+                            @if ($quizzes->currentPage() == $quizzes->lastPage())
+                                <input type="hidden" name="nextPageUrl" value="end">
+                            @endif
                             <input type="hidden" name="quiz_id" value="{{ $quiz->id }}">
                             @csrf
                             {{-- <input type="hidden" name="ur_answer" value=3> --}}
@@ -35,6 +44,9 @@
                         </form>
                         <form align='center' method='POST' action="{{ $quizzes->nextPageUrl() }}">
                             <input type="hidden" name="nextPageUrl" value="{{ $quizzes->nextPageUrl() }}">
+                            @if ($quizzes->currentPage() == $quizzes->lastPage())
+                                <input type="hidden" name="nextPageUrl" value="end">
+                            @endif
                             <input type="hidden" name="quiz_id" value="{{ $quiz->id }}">
                             @csrf
                             {{-- <input type="hidden" name="ur_answer" value=4> --}}

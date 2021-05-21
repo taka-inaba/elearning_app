@@ -21,9 +21,9 @@
                 <div class="card-body">
                     <h2>{{ $category->title }} </h2>
                     <h5>{{ $category->description }} </h5>
-                    <form align='right' method='GET' action='/admin/categories/'>
+                    <form align='right' method='POST' action='/categories/lessons/ '>
                         @csrf
-                        <button class = 'btn btn-primary' type='submit' >Take Quiz</button>
+                        <button class ='btn btn-primary' type='submit' name="category_id" value="{{ $category->id }}" >Take Quiz</button>
                     </form>
                 </div>
             </div>

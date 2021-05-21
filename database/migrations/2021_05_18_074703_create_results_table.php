@@ -15,7 +15,8 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('categories')->onDelete("cascade");
+            // $table->foreignId('category_id')->constrained('categories')->onDelete("cascade");
+            $table->foreignId('lesson_id')->constrained('lessons')->onDelete("cascade");
             $table->foreignId('quiz_id')->constrained('quizzes')->onDelete("cascade");
             $table->string('ur_answer');
             $table->string('status');
