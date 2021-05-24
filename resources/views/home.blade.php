@@ -40,7 +40,6 @@
                             <p>Learned {{ Auth::user()->lessons()->count()}} Lessons</p>
                             </a>
                         </div>
-
                     </div>
                     <br>
 

@@ -43,6 +43,13 @@
                         </div>
                     </div>
                     <br>
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <p>Learned {{ $user->lessons()->count()}} Lessons</p>
+                            </a>
+                        </div>
+                    </div>
+                    <br>
 
 
 
