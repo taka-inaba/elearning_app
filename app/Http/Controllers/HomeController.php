@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Follow;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -25,7 +28,11 @@ class HomeController extends Controller
     public function index()
     {
         // session()->flash('flash_message', 'You are logged in');
-        return view('home');
+        // $a = Auth::user()->activities->;
+        // dd($a);
+        $users = User::all();
+
+        return view('home', compact('users'));
     }
 
     public function list()

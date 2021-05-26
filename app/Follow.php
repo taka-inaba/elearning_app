@@ -15,5 +15,9 @@ class Follow extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function activity(){
+
+        return $this->morphMany('App\Activity', 'notifiable');
+    }
 
 }

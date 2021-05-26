@@ -30,17 +30,23 @@
                                 @if (Auth::user()->id != $user->id)
                                     @if (Auth::user()->is_following($user->id) || Auth::user()->id == $user->id)
                                     <div align='right' class="ml-auto">
-                                        <a href="{{ route('user.unfollow', ['unfollowed_id' => $user->id]) }}" class='btn btn-danger'>Unfollow</a>
+                                        <form action='/users/{{ $user->id }}/unfollow' method='POST'>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type='submit' class='btn btn-warning' style='background-color:red'>Unfollow</button>
+                                        </form>
                                     </div>
                                     @else
                                     <div align='right' class="ml-auto" >
-                                        <a href="{{ route('user.follow', ['followed_id' => $user->id]) }}" class='btn btn-primary'>Follow</a>
+                                        <form action='/users/{{ $user->id }}/follow' method='POST'>
+                                        @csrf
+                                        <button type='submit' class='btn btn-warning' style='background-color:rgb(197, 197, 247)'>Follow</button>
+                                        </form>
                                     </div>
                                     @endif
                                 @endif
                             </div>
                         </div>
-
                     </div>
                 </div>
                 @endforeach
