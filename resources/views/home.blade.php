@@ -13,15 +13,35 @@
                     <br>
                     <div class="row justify-content-center">
                         <div class="col-md-5">
+                            <a href="{{ route('user.followers', ['id' => Auth::user()->id]) }}" >
                             {{ Auth::user()->followers()->count() }}
                             <h5>Followers</h5>
+                            </a>
                         </div>
                         <div class="col-md-5">
+                            <a href="{{ route('user.following', ['id' => Auth::user()->id]) }}" >
                             {{ Auth::user()->following()->count() }}
                             <h5>Following</h5>
+                            </a>
                         </div>
 
                     </div>
+                    <br>
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                                <div class="ml-auto">
+                                    <a href="{{ route('user_edit', ['user' => Auth::user()->id]) }}" class='btn btn-primary'>Edit</a>
+                                </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <p>Learned {{ Auth::user()->lessons()->count()}} Lessons</p>
+                            </a>
+                        </div>
+                    </div>
+                    <br>
 
 
                 </div>

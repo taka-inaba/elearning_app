@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Quiz;
+use App\Lesson;
 
 class CategoryController extends Controller
 {
@@ -15,11 +16,14 @@ class CategoryController extends Controller
         return view('quiz', compact('categories', 'quizzes'));
 
     }
-    public function main_list(Category $categories){
+    public function main_list(Lesson $lessons, Category $categories){
 
         $categories = Category::all();
+        // $lesson_id = $lessons->id;
+        $lesson_id = $lessons->count();
+        // dd($lessons->count());
 
-        return view('list_categories', compact('categories'));
+        return view('list_categories', compact('categories', 'lesson_id'));
     }
 
     public function list(Category $categories){

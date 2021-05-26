@@ -54,6 +54,11 @@
                                     <a class="nav-link" href="{{ route('categories') }}">{{ __('Categories') }}</a>
                                 </li>
                             @endif
+                            @if (Route::has('list_categories'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('list_categories') }}">{{ __('Categories') }}</a>
+                                </li>
+                            @endif
                             @if (Route::has('users'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('users') }}">{{ __('Users') }}</a>

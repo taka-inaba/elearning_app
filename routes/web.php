@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/users', 'HomeController@list')->name('users');
 
-Route::get('/categories', 'CategoryController@main_list')->name('categories');
+Route::get('/categories', 'CategoryController@main_list')->name('list_categories');
 
 Route::get('/users/{user}', 'HomeController@show')->name('user');
 
@@ -41,11 +41,12 @@ Route::get('/user/{id}/followers', 'FollowController@followers')->name('user.fol
 Route::get('/admin/categories', 'CategoryController@list')->name('list');
 Route::post('/admin/categories', 'CategoryController@store');
 
+Route::get('/admin/categories/create', 'CategoryController@create');
 Route::get('/admin/users', 'HomeController@admin_users_list')->name('admin_users_list');
 
 Route::get('/admin/categories/create', 'CategoryController@create');
 
-Route::get('/admin/users/{user}/edit', 'HomeController@edit');
+Route::get('/admin/users/{user}/edit', 'HomeController@edit')->name('user_edit');
 Route::patch('/admin/users/{user}/edit', 'HomeController@update');
 Route::delete('/admin/users/{user}/edit', 'HomeController@delete');
 
@@ -75,8 +76,22 @@ Route::get('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController
 Route::patch('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@update');
 Route::delete('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@delete');
 
+
+// Route::post('/lessons/lessson_id', 'LessonController@list')->name('lesson');
+Route::get('/categories/lessons/{lesson}', 'LessonController@list')->name('lesson');
+Route::post('/categories/lessons/', 'LessonController@store');
+
+Route::get('/admin/categories/{categories}/quiz/create', 'QuizController@create');
+
 Route::get('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@edit');
 Route::patch('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@update');
 Route::delete('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@delete');
+
+Route::get('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@edit');
+Route::patch('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@update');
+Route::delete('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@delete');
+Route::post('/categories/lessons/{lesson}', 'ResultController@store');
+
+Route::get('/categories/lessons/{lesson}/result', 'ResultController@show');
 
 Route::get('/lessons/', 'LessonController@list');

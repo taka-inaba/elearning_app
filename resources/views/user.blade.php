@@ -29,15 +29,24 @@
                     <br>
                     <div class="row justify-content-center">
                         <div class="col-md-12">
-                            @if (Auth::user()->is_following($user->id) || Auth::user()->id == $user->id)
-                                <div class="ml-auto">
-                                    <a href="{{ route('user.unfollow', ['unfollowed_id' => $user->id]) }}" class='btn btn-danger'>Unfollow</a>
-                                </div>
-                            @else
-                                <div class="ml-auto" >
-                                    <a href="{{ route('user.follow', ['followed_id' => $user->id]) }}" class='btn btn-primary'>Follow</a>
-                                </div>
+                            @if (Auth::user()->id != $user->id)
+                                @if (Auth::user()->is_following($user->id) || Auth::user()->id == $user->id)
+                                    <div class="ml-auto">
+                                        <a href="{{ route('user.unfollow', ['unfollowed_id' => $user->id]) }}" class='btn btn-danger'>Unfollow</a>
+                                    </div>
+                                @else
+                                    <div class="ml-auto" >
+                                        <a href="{{ route('user.follow', ['followed_id' => $user->id]) }}" class='btn btn-primary'>Follow</a>
+                                    </div>
+                                @endif
                             @endif
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <p>Learned {{ $user->lessons()->count()}} Lessons</p>
+                            </a>
                         </div>
                     </div>
                     <br>
