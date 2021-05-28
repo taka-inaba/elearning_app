@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Lesson;
 use App\Quiz;
+use App\Activity;
 
 class Category extends Model
 {
@@ -22,4 +23,9 @@ class Category extends Model
         return $this->hasMany('App\Lesson');
     }
 
+    public function activities(){
+
+        return $this->morphMany('App\Activity', 'notifiable_type');
+    }
 }
+

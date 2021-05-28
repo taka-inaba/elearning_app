@@ -28,11 +28,11 @@ Route::get('/categories', 'CategoryController@main_list')->name('list_categories
 Route::get('/users/{user}', 'HomeController@show')->name('user');
 
 
-Route::post('/users/follow', 'FollowController@follow');
-Route::delete('/users/unfollow', 'FollowController@unfollow');
+// Route::post('/users/follow', 'FollowController@follow');
+// Route::delete('/users/unfollow', 'FollowController@unfollow');
 
-Route::get('/users/{followed_id}/follow', 'FollowController@followget')->name('user.follow');;
-Route::get('/users/{unfollowed_id}/unfollow', 'FollowController@unfollowget')->name('user.unfollow');
+Route::post('/users/{followed_id}/follow', 'FollowController@follow')->name('user.follow');;
+Route::delete('/users/{unfollowed_id}/unfollow', 'FollowController@unfollow')->name('user.unfollow');
 
 
 Route::get('/user/{id}/following', 'FollowController@following')->name('user.following');
@@ -86,6 +86,9 @@ Route::get('/admin/categories/{categories}/quiz/create', 'QuizController@create'
 Route::get('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@edit');
 Route::patch('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@update');
 Route::delete('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@delete');
+Route::post('/categories/lessons/{lesson}', 'ResultController@store');
+
+Route::get('/categories/lessons/{lesson}/result', 'ResultController@show');
 
 Route::get('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@edit');
 Route::patch('/admin/categories/{categories}/quiz/{quizzes}/edit', 'QuizController@update');
@@ -95,3 +98,6 @@ Route::post('/categories/lessons/{lesson}', 'ResultController@store');
 Route::get('/categories/lessons/{lesson}/result', 'ResultController@show');
 
 Route::get('/lessons/', 'LessonController@list');
+
+Route::post('/user/category/', 'ActivitiyController@showcat');
+Route::post('/user/follow/', 'ActivitiyController@showfol');

@@ -23,6 +23,12 @@ class LessonController extends Controller
             'category_id' => $requests->category_id
         ]);
 
+        $lesson->activity()->create([
+            'user_id' => Auth::user()->id,
+            'content' => $lesson->category->title
+        ]);
+        // dd($lesson->category->title);
+
         return redirect('categories/lessons/'. $lesson->id );
     }
 }

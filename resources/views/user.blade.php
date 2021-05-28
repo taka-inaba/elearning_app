@@ -45,7 +45,8 @@
                     <br>
                     <div class="row justify-content-center">
                         <div class="col-md-10">
-                            <p>Learned {{ $user->lessons()->count()}} Lessons</p>
+                            <p>Learned {{ $cnt }} Words</p>
+                            <p>Took {{ $user->lessons()->count()}} Lessons</p>
                             </a>
                         </div>
                     </div>
@@ -60,6 +61,23 @@
             <div class="card">
                 <h2>Activities</h2>
                 <div class="car-body">
+                    <br>
+                    {{-- @foreach (Auth::user()->activities as $acti --}}
+                    @foreach ($user->activities->reverse() as $activity)
+                        <div class="card">
+                            <div class="card-body">
+                                @if ($activity->notifiable_type == "App\Follow")
+                                    <h4>You followed
+                                    <a href="{{ url('/users/'. $activity->notifiable->followed->id) }}">
+                                    {{ $activity->content }} </a>
+                                    </h4>
+                                @else
+                                    <h4>You took <b>{{ $activity->content }}</b></h4>
+                                @endif
+                                <div align='right'>{{ $activity->created_at->diffForHumans()}}</div>
+                            </div>
+                        </div>
+                    @endforeach
 
                 </div>
             </div>
