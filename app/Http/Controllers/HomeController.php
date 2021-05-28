@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Result;
 use App\Follow;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,7 +33,25 @@ class HomeController extends Controller
         // dd($a);
         $users = User::all();
 
-        return view('home', compact('users'));
+        $arr = [];
+
+        // $results = Result::all();
+        // Result::where('status', 'Correct')->count();
+        // foreach($results as $result){
+        //     if($result->status == 'Correct'){
+        //         array_push($arr, $result->quiz_id);
+        //     }
+        // }
+        // $cnt = count(array_unique($arr));
+
+        $words = auth()->user()->learnedWords();
+
+        $cnt = count($words);
+
+
+        // $follow = Follow::where('user_id', Auth::user()->id)->where('follow_id', $followed_user->id)->first();
+
+        return view('home', compact('users', 'cnt'));
     }
 
     public function list()
@@ -44,7 +63,10 @@ class HomeController extends Controller
 
     public function show(User $user)
     {
-        return view('user', compact('user'));
+        $words = $user->learnedWords();
+
+        $cnt = count($words);
+        return view('user', compact('user', 'cnt'));
 
     }
 

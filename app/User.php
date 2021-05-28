@@ -72,4 +72,22 @@ class User extends Authenticatable
         return $this->hasMany(Activity::class);
     }
 
+    public function learnedWords()
+    {
+        $lessons = $this->lessons;
+
+        $words = [];
+        $learnedWords = [];
+
+        foreach ($lessons as $lesson) {
+            foreach ($lesson->results as $result) {
+                if ($result->status == 'Correct' && !in_array($result->quiz_id, $learnedWords)) {
+                    array_push($words, $result->quiz);
+                    array_push($learnedWords, $result->quiz_id);
+                }
+            }
+        }
+
+        return $words;
+    }
 }

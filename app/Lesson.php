@@ -34,4 +34,14 @@ class Lesson extends Model
 
         return $this->morphMany('App\Activity', 'notifiable');
     }
+
+    /**
+     * Get all of the results for the Lesson
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
 }

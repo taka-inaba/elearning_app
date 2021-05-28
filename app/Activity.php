@@ -11,7 +11,7 @@ class Activity extends Model
     ];
 
 
-    public function activity()
+    public function notifiable()
     {
         return $this->morphTo();
     }

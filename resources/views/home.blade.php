@@ -37,7 +37,8 @@
                     <br>
                     <div class="row justify-content-center">
                         <div class="col-md-10">
-                            <p>Learned {{ Auth::user()->lessons()->count()}} Lessons</p>
+                            <p>Learned {{ $cnt }} Words</p>
+                            <p>Took {{ Auth::user()->lessons()->count()}} Lessons</p>
                             </a>
                         </div>
                     </div>
@@ -58,17 +59,15 @@
                             <div class="card-body">
                                 @if ($activity->notifiable_type == "App\Follow")
                                     <h4>You followed
-                                    <a href="{{ url('/users/'. App\User::where('name', $activity->content)->first()['id']) }}">
+                                    <a href="{{ url('/users/'. $activity->notifiable->followed->id) }}">
                                     {{ $activity->content }} </a>
                                     </h4>
                                 @else
                                     <h4>You took <b>{{ $activity->content }}</b></h4>
-
                                 @endif
-
+                                <div align='right'>{{ $activity->created_at->diffForHumans()}}</div>
                             </div>
                         </div>
-
                     @endforeach
                 </div>
             </div>

@@ -17,7 +17,17 @@ class Follow extends Model
 
     public function activity(){
 
-        return $this->morphMany('App\Activity', 'notifiable');
+        return $this->morphOne('App\Activity', 'notifiable');
+    }
+
+    public function followed()
+    {
+        return $this->belongsTo('App\User', 'follow_id');
+    }
+
+    public function follower()
+    {
+        return $this->belongsTo('App\User', 'user_id');
     }
 
 }
